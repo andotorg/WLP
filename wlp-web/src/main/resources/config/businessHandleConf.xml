@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 系统中各种接口的服务类型配置 -->
+<servers>
+	<!-- 使用说明：1.增加配置文件，参考用户消息回调接口 。2.添加业务接口，如UserMessageHandleInter，3.制作业务接口的实现类，如SendMessageHandle。4.在具体业务中使用该类 -->
+	<!-- 用户消息接口回调
+	<server id="UserMessageHandleInterId">
+		- - 发送用户消息的接口实现,必须实现接口com.farm.core.inter.UserMessageHandleInter，所有用户消息也会发送到如下接口中 - -
+		<list inter="com.farm.core.inter.UserMessageHandleInter">
+			- - state="true" 该handle可用，state="false" 该handle禁用 - - 
+			<bean id="DDINGMSG" title="钉钉消息"
+				class="com.farm.wcp.oauth2.dingding.handle.DingdingUserMessageHandle"
+				state="false">
+				- - 钉钉消息 - - 
+				<tip>请登录知识库管理系统查看具体消息</tip>
+			</bean>
+			<bean id="WCPMSG" title="站内消息" class="com.farm.doc.handle.WcpMessageHandle"
+				state="true">
+				- - 站内消息 - - 
+				<tip>知识库站内消息</tip>
+			</bean>
+			<bean id="LOCALMAIL" title="本地邮件"
+				class="com.farm.resume.email.LocalEmailMessageHandle" state="false">
+				- - 本地邮件发送服务 - - 
+				<stmpHost>123.58.177.48</stmpHost>
+				<emainAccount>zcfb@xxxyowo.com</emainAccount>
+				<emainPassword>Zxxxxxx19</emainPassword>
+				<isSSL>true</isSSL>
+				- - 启用ssl则使用下面端口号，否则使用25 - - 
+				<sslPort>465</sslPort>
+				<wcphost>http://127.0.0.1:8080/wcp</wcphost>
+				<tip1>尊敬的用户</tip1>
+				<tip2>请点击下面链接地址查看详情(可能需要登陆知识管理系统后访问)</tip2>
+			</bean>
+			<bean id="ALIYUNMAIL" title="阿里云邮件"
+				class="com.farm.resume.email.AliyunEmailMessageHandle" state="false">
+				- - 阿里云邮件发送服务
+				<accessKeyId>LTAW5BG</accessKeyId>
+				<accessKeySecret>qNAPCCVCOX</accessKeySecret>
+				<accountName>msg@wwnow.com</accountName>
+				<wcphost>http://127.0.0.1:8080/wcp</wcphost>
+				<tip1>尊敬的用户</tip1>
+				<tip2>请点击下面链接地址查看详情(可能需要登陆知识管理系统后访问)</tip2>
+			</bean>
+		</list>
+	</server>
+	<server id="AppOperatorHandleInterId">
+		- - 发送用户消息的接口实现,必须实现接口com.farm.core.inter.UserMessageHandleInter，所有用户消息也会发送到如下接口中
+		<list inter="com.farm.wcp.api.EkcaAppInter">
+			<bean class="com.farm.ekca.service.EkcaServiceFace" state="true">
+				<tip>EKCA知识库行为分析系统记录接口</tip>
+			</bean>
+			<bean class="com.farm.authority.log.AppOperatorLogs" state="true">
+				<tip>日志记录接口信息</tip>
+			</bean>
+			<bean class="com.farm.wcp.cache.handle.AppCacheHandle" state="true">
+				<tip>缓存事件触发</tip>
+			</bean>
+		</list>
+	</server> -->
+</servers>

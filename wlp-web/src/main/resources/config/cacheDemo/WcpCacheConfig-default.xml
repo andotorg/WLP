@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- 磁盘缓存位置 -->
+	<diskStore path="java.io.tmpdir/ehcache" />
+	<!-- 默认缓存 -->
+	<defaultCache maxEntriesLocalHeap="10000" eternal="false"
+		timeToIdleSeconds="9999" timeToLiveSeconds="120" maxEntriesLocalDisk="10000000"
+		diskExpiryThreadIntervalSeconds="120" memoryStoreEvictionPolicy="LRU">
+		<persistence strategy="localTempSwap" />
+	</defaultCache>
+	<!-- 知识分享缓存 86400一天，604800七天，2592000三十天 -->
+	<cache name="wcp-share-level1" timeToLiveSeconds="86400"
+		maxElementsInMemory="2000" />
+	<cache name="wcp-share-level2" timeToLiveSeconds="604800"
+		maxElementsInMemory="2000" />
+	<cache name="wcp-share-level3" timeToLiveSeconds="2592000"
+		maxElementsInMemory="2000" />
+	<!--知识分类缓存（用于dao中获得知识的分类一般缓存设置于1秒之内） -->
+	<cache name="wcp-cache-doctype" timeToLiveSeconds="0"
+		maxElementsInMemory="2000" />
+	<!--单点登陆客户端缓存 -->
+	<cache name="wcp-sso-clientids" timeToLiveSeconds="86400"
+		maxElementsInMemory="20000" />	
+	<!--知识对象缓存 -->
+	<cache name="wcp-cache-docs" timeToLiveSeconds="0"
+		maxElementsInMemory="2000" />
+	<!--专家对应的用户ids缓存 -->
+	<cache name="wcp-expert-userids" timeToLiveSeconds="10"
+		maxElementsInMemory="2000" />
+	<!--附件对象缓存 -->
+	<cache name="wcp-cache-files" timeToLiveSeconds="9999"
+		maxElementsInMemory="5000" />
+	<!--获得分类知识（用于知识访问页面的知识推送） -->
+	<cache name="wcp-typedocsfordocpage-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-typedocsfordocpage" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!--获取用戶未读的消息 -->
+	<cache name="wcp-unreadmessagesbyuser-live" timeToLiveSeconds="10"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-unreadmessagesbyuser" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!--获得所有专题,可用根据状态和id进行筛选（用于前台展示） -->
+	<cache name="wcp-allspecial-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-allspecial" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得用户所有（被授权阅读的受限分类的分类的ID）（阅读） -->
+	<cache name="wcp-userreadtypeids-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-userreadtypeids" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取问题分类信息（带分类下问题数量）用于创建问题时候的 -->
+	<cache name="wcp-fqatypesforwritedoc-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-fqatypesforwritedoc" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取知识分类信息（带分类下知识数量）用于创建知识时候的 -->
+	<cache name="wcp-typesforwritedoc-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-typesforwritedoc" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取知识分类信息（带分类下知识数量） -->
+	<cache name="wcp-poptypesforreaddoc-live" timeToLiveSeconds="5"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-poptypesforreaddoc" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取问答分类信息（带分类下问答数量） -->
+	<cache name="wcp-popfqatypesforreaddoc-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-popfqatypesforreaddoc" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取公开的知识分类信息 -->
+	<cache name="wcp-pubtypeids-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-pubtypeids" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得分类所有子节点（包含它自己） -->
+	<cache name="wcp-allsubnode-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-allsubnode" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得用户的分类下的知识 -->
+	<cache name="wcp-typedocs-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-typedocs" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取知识分类详细信息（带分类下知识数量）（下级分类和下下级别分类） -->
+	<cache name="wcp-typeinfos-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-typeinfos" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取所有的友情链接集合 -->
+	<cache name="wcp-weburllist-live" timeToLiveSeconds="30"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-weburllist" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获取不登录显示的友情链接集合 -->
+	<cache name="wcp-weburllistnologin-live" timeToLiveSeconds="30"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-weburllistnologin" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得某分类下的问答 -->
+	<cache name="wcp-typefqas-live" timeToLiveSeconds="0"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-typefqas" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 最热已完成问答 -->
+	<cache name="wcp-newpublicdocmessages-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-newpublicdocmessages" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 最热已完成问答 -->
+	<cache name="wcp-hotquestionbyfinish-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-hotquestionbyfinish" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 最热待完成问答 -->
+	<cache name="wcp-hotquestionbywaiting-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-hotquestionbywaiting" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 最热问答 -->
+	<cache name="wcp-hotquestion-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-hotquestion" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 最热知识小组 -->
+	<cache name="wcp-hotdocgroups-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-hotdocgroups" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 展示最新知识 -->
+	<cache name="wcp-newknowlist-live" timeToLiveSeconds="59"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-newknowlist" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得最热知识 -->
+	<cache name="wcp-pubhotdoc-live" timeToLiveSeconds="301"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-pubhotdoc" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得置顶知识 -->
+	<cache name="wcp-pubtopdoc-live" timeToLiveSeconds="5"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-pubtopdoc" timeToLiveSeconds="623"
+		maxElementsInMemory="5000" />
+	<!-- 获得好评用户 -->
+	<cache name="wcp-statgoodusers-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statgoodusers" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- 获得好评小组 -->
+	<cache name="wcp-statgoodgroups-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statgoodgroups" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- 最多知识用户 -->
+	<cache name="wcp-statmostusers-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statmostusers" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- 好评文档 -->
+	<cache name="wcp-statgooddocs-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statgooddocs" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- 差评文档 -->
+	<cache name="wcp-statbaddocs-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statbaddocs" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- 整体用量(获得每天的知识总数、好评数、差评数) -->
+	<cache name="wcp-statnumforday-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statnumforday" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- 用户知识统计 -->
+	<cache name="wcp-statuser-live" timeToLiveSeconds="312"
+		maxElementsInMemory="5000" />
+	<cache name="wcp-statuser" timeToLiveSeconds="6230"
+		maxElementsInMemory="5000" />
+	<!-- name:缓存名称。 -->
+	<!-- maxElementsInMemory：缓存最大个数。 -->
+	<!-- eternal:对象是否永久有效，一但设置了，timeout将不起作用。 -->
+	<!-- timeToIdleSeconds：设置对象在失效前的允许闲置时间（单位：秒）。仅当eternal=false对象不是永久有效时使用，可选属性，默认值是0，也就是可闲置时间无穷大。 -->
+	<!-- timeToLiveSeconds：设置对象在失效前允许存活时间（单位：秒）。最大时间介于创建时间和失效时间之间。仅当eternal=false对象不是永久有效时使用，默认是0.，也就是对象存活时间无穷大。 -->
+	<!-- overflowToDisk：当内存中对象数量达到maxElementsInMemory时，Ehcache将会对象写到磁盘中。 -->
+	<!-- diskSpoolBufferSizeMB：这个参数设置DiskStore（磁盘缓存）的缓存区大小。默认是30MB。每个Cache都应该有自己的一个缓冲区。 -->
+	<!-- maxElementsOnDisk：硬盘最大缓存个数。 -->
+	<!-- diskPersistent：是否缓存虚拟机重启期数据 Whether the disk store persists between 
+		restarts of the Virtual Machine. The default value is false. -->
+	<!-- diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认是120秒。 -->
+	<!-- memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用）。 -->
+	<!-- clearOnFlush：内存数量最大时是否清除。 -->
+</ehcache>

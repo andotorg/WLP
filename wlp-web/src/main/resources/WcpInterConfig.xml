@@ -1,0 +1,41 @@
+<?xml version="1.0"  encoding="utf-8" standalone="yes" ?>
+<conf>
+	<group describe="本地服務器" name="localserver">
+		<parameter name="config.local.http.port">
+			<val>8080</val>
+			<describe>本地http端口</describe>
+		</parameter>
+		<parameter name="config.local.http.ip">
+			<val>127.0.0.1</val>
+			<describe>本地IP</describe>
+		</parameter>
+	</group>
+	<!-- restful接口 -->
+	<group describe="restful接口" name="restful">
+		<parameter name="config.restful.state">
+			<val>true</val>
+			<describe>是否启用restful接口</describe>
+		</parameter>
+		<parameter name="config.restful.secret.type">
+			<val>complex</val>
+			<describe>权限校验模式complex[使用安全码的同时必须带入操作人信息]|simple[简单模式直接使用安全码访问]|none[不校验验证码，只校验ip白名单]
+			</describe>
+		</parameter>
+		<parameter name="config.restful.whitelist.state">
+			<val>true</val>
+			<describe>是否启用ip白名单</describe>
+		</parameter>
+		<parameter name="config.restful.whitelist.ips">
+			<val>127.0.0.1,192.*.*.*</val>
+			<describe>允许访问的白名单，多个ip间用逗号分隔支持通配符192.168.1.1,192.168.*.2,192.168.3.17-192.168.3.38</describe>
+		</parameter>
+		<parameter name="config.restful.debug">
+			<val>false</val>
+			<describe>是否启用接口调试模式</describe>
+		</parameter>
+		<parameter name="config.restful.secret.key">
+			<val>F59BD65F7EDAFB087A81D4DCA06C4910</val>
+			<describe>系统通用的接口密码</describe>
+		</parameter>
+	</group>
+</conf>
